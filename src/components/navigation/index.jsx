@@ -1,61 +1,42 @@
-// import React from 'react';
-// import PropTypes from 'prop-types';
-// import Search from "../search";
-// import PriorityFilter from "../priorityFilter";
-// import Menu from '../menu';
-// import styles from './styles.css';
-//
-// const Header = ({ page, search, onSearchChange, currentFilter, changePriorityFilter,
-//                     onAddTodo, onOpenSettings, onLogout, onAuthSubmenuOpen }) =>
-//     page === "main"
-//         ? ( <header className={styles.container}>
-//             <div className={styles.left_menu}>
-//                 <PriorityFilter
-//                     changePriorityFilter={changePriorityFilter}
-//                     currentFilter={currentFilter} />
-//                 <Search
-//                     search={search}
-//                     onSearchChange={onSearchChange} />
-//             </div>
-//             <h1 className={styles.title}>Task manager</h1>
-//             <div className={styles.right_menu}>
-//                 <Menu
-//                     page={page}
-//                     onAddTodo={onAddTodo}
-//                     onOpenSettings={onOpenSettings}
-//                     onLogout={onLogout}
-//                     onAuthSubmenuOpen={onAuthSubmenuOpen}/>
-//             </div>
-//         </header>)
-//         : (<header className={styles.container_slider}>
-//             <div className={styles.left_menu} />
-//             <h1 className={styles.title}>Task manager</h1>
-//             <div className={styles.right_menu}>
-//                 <Menu
-//                     page={page} />
-//             </div>
-//         </header>)
-// ;
-//
-// Header.propTypes = {
-//     page: PropTypes.string.isRequired,
-//     search: PropTypes.string,
-//     onSearchChange: PropTypes.func,
-//     currentFilter: PropTypes.string,
-//     changePriorityFilter: PropTypes.func,
-//     onAddTodo: PropTypes.func,
-//     onOpenSettings: PropTypes.func.isRequired,
-//     onLogout: PropTypes.func,
-//     onAuthSubmenuOpen: PropTypes.func.isRequired
-// };
-//
-// Header.defaultProps ={
-//     onSearchChange: () => { },
-//     search: '',
-//     changePriorityFilter: () => {},
-//     currentFilter: 'all',
-//     onAddTodo: () => {},
-//     onLogout: () => { }
-// };
-//
-// export default Header;
+/*eslint-disable*/
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+import Submenu from "../submenu";
+// import { getPagesToShow } from "../../../utils/selectors";
+// import nextIcon from "../../../icons/next.svg";
+import styles from './styles.css';
+
+const INITIAL_STATE = {
+    isSubmenuOpen: false,
+};
+
+export default class Navigation extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { ...INITIAL_STATE };
+    };
+
+    handleSubmenuOpen = () =>
+        this.setState(prevState => {isSubmenuOpen: true});
+
+    render () {
+        const { isSubmenuOpen} = this.state;
+
+        return (
+            <div className={styles.container}>
+                <div>Company name</div>
+                <ul  className={styles.menu}>
+                    <li className={styles.menu__item}>dashboard</li>
+                    <li className={styles.menu__item}>projects</li>
+                    <li className={styles.menu__item}>team</li>
+                    <li className={styles.menu__item}>company</li>
+                </ul>
+                <div>
+                    <button onClick={this.handleSubmenuOpen}>Person</button>
+                    {isSubmenuOpen && <Submenu />}
+                </div>
+            </div>
+        )
+    }
+}
