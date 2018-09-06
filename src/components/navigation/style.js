@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import cssVariables from '../../css_variables';
 
-const { headerHeight, grey, orange, borderGrey, mainFontColor } = cssVariables;
+const { headerHeight, grey, borderGrey, mainFontColor } = cssVariables;
 
 
 export const Header = styled.header`
@@ -37,53 +37,6 @@ export const Title = styled.div`
 
     @media (max-width: 768px) {
         padding: 0 0 0 10px;
-    }
-`;
-
-export const Menu = styled.ul`
-    list-style: none;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 50%;
-    margin: 0;
-    padding: 0 32px;
-
-    @media (max-width: 768px) {
-        display: none;
-    }
-`;
-
-export const MenuItem = styled.li`
-    padding: 0 10px;
-    line-height: ${headerHeight};
-    text-transform: uppercase;
-
-    &:hover {
-        color: ${orange};
-        cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-        line-height: 30px;
-    }
-`;
-
-export const MobileMenu = styled.ul`
-    width: 30%;
-    min-width: 320px;
-    height: calc(100vh - ${headerHeight});
-    list-style: none;
-    position: absolute;
-    top: ${headerHeight};
-    margin: 0;
-    //transform: translateX(-100%);
-    padding: 0;
-    background-color: ${grey};
-    // transition: transform linear 4000ms;
-
-    @media (min-width: 769px) {
-        display: none;
     }
 `;
 

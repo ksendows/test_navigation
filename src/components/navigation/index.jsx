@@ -1,13 +1,14 @@
-/*eslint-disable*/
 import React, {Component} from 'react';
+import Menu from '../menu';
+import MobileMenu from '../mobileMenu';
 import Submenu from '../submenu';
 import avatarPlaceholder from '../../images/avatar.svg';
-import { Header, Wrapper, Title, Menu, MenuItem, UserNav, UserNavButton, Burger, BurgerRow, MobileMenu } from './style';
-
+import { Header, Wrapper, Title, UserNav, UserNavButton, Burger, BurgerRow } from './style';
 
 const INITIAL_STATE = {
     isSubmenuOpen: false,
-    isMobileMenuOpen: false
+    isMobileMenuOpen: false,
+    menuItems: ['dashboard', 'projects', 'team', 'company'],
 };
 
 export default class Navigation extends Component {
@@ -24,31 +25,19 @@ export default class Navigation extends Component {
         this.setState((prevState) => ({ isMobileMenuOpen: !prevState.isMobileMenuOpen }));
 
     render () {
-        const { isSubmenuOpen, isMobileMenuOpen } = this.state;
+        const { isSubmenuOpen, isMobileMenuOpen, menuItems } = this.state;
 
         return (
             <Header>
                 <Wrapper>
                     <Burger onClick={this.handleMobileMenuOpen}>
-                        <BurgerRow></BurgerRow>
-                        <BurgerRow></BurgerRow>
-                        <BurgerRow></BurgerRow>
+                        <BurgerRow />
+                        <BurgerRow />
+                        <BurgerRow />
                     </Burger>
                     <Title>Company name</Title>
-                    {isMobileMenuOpen && 
-                        <MobileMenu>
-                            <MenuItem>dashboard</MenuItem>
-                            <MenuItem>projects</MenuItem>
-                            <MenuItem>team</MenuItem>
-                            <MenuItem>company</MenuItem>
-                        </MobileMenu> 
-                    }
-                    <Menu>
-                        <MenuItem>dashboard</MenuItem>
-                        <MenuItem>projects</MenuItem>
-                        <MenuItem>team</MenuItem>
-                        <MenuItem>company</MenuItem>
-                    </Menu>
+                    {isMobileMenuOpen && <MobileMenu menuItems={menuItems} />}
+                    <Menu menuItems={menuItems} />
                 </Wrapper>
                 <UserNav>
                     <UserNavButton onClick={this.handleSubmenuOpen}>
