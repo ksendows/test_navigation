@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import closeIcon from "../../icons/close.svg";
-import styles from './styles.css';
+import { SubmenuListItem, SubmenuItemLink, SubmenuItemTitle, SubmenuItemQuantity } from './style';
 
 const SubmenuItem = ( {title, hasQuantintity, quantity} ) => (
-    <li className={styles.item}>
-        <a href="">{title}</a>
-        {hasQuantintity && <div>{quantity}</div>}
-    </li>
+    <SubmenuListItem>
+        <SubmenuItemLink>
+            <SubmenuItemTitle>{title}</SubmenuItemTitle>
+            {hasQuantintity && <SubmenuItemQuantity>{quantity}</SubmenuItemQuantity>}
+        </SubmenuItemLink>
+    </SubmenuListItem>
 );
 
 SubmenuItem.propTypes = {
