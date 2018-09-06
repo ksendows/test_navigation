@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import css_variables from '../../css_variables';
+import cssVariables from '../../css_variables';
 
-const { orange, darkGrey, white, mainFontColor } = css_variables;
+const { orange, darkGrey, white, mainFontColor } = cssVariables;
 
 export const SubmenuListItem = styled.li`   
     position: relative;

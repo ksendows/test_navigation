@@ -1,4 +1,4 @@
-const css_variables = {
+const cssVariables = {
     headerHeight: '76px',
 
     grey: '#f3f3f3',
@@ -9,4 +9,4 @@ const css_variables = {
     mainFontColor: '#4a4a4a',
 };
 
-export default css_variables;
+export default cssVariables;

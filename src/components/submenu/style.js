@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import css_variables from '../../css_variables';
+import cssVariables from '../../css_variables';
 
-const { borderGrey, white } = css_variables;
+const { borderGrey, white } = cssVariables;
 
 export const Wrapper = styled.div`
     position: absolute;

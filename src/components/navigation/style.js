@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import css_variables from '../../css_variables';
+import cssVariables from '../../css_variables';
 
-const { headerHeight, grey, orange, borderGrey, mainFontColor } = css_variables;
+const { headerHeight, grey, orange, borderGrey, mainFontColor } = cssVariables;
 
 
 export const Header = styled.header`
