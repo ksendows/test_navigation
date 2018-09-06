@@ -3,12 +3,11 @@ import Menu from '../menu';
 import MobileMenu from '../mobileMenu';
 import Submenu from '../submenu';
 import avatarPlaceholder from '../../images/avatar.svg';
-import { Header, Wrapper, Title, UserNav, UserNavButton, Burger, BurgerRow } from './style';
+import { Header, Nav, Title, UserNav, UserNavButton, Burger, BurgerRow } from './style';
 
 const INITIAL_STATE = {
     isSubmenuOpen: false,
     isMobileMenuOpen: false,
-    menuItems: ['dashboard', 'projects', 'team', 'company'],
 };
 
 export default class Navigation extends Component {
@@ -16,6 +15,7 @@ export default class Navigation extends Component {
     constructor(props) {
         super(props);
         this.state = { ...INITIAL_STATE };
+        this.menuItems = ['dashboard', 'projects', 'team', 'company'];
     };
 
     handleSubmenuOpen = () => 
@@ -25,20 +25,20 @@ export default class Navigation extends Component {
         this.setState((prevState) => ({ isMobileMenuOpen: !prevState.isMobileMenuOpen }));
 
     render () {
-        const { isSubmenuOpen, isMobileMenuOpen, menuItems } = this.state;
+        const { isSubmenuOpen, isMobileMenuOpen } = this.state;
 
         return (
             <Header>
-                <Wrapper>
+                <Nav>
                     <Burger onClick={this.handleMobileMenuOpen}>
                         <BurgerRow />
                         <BurgerRow />
                         <BurgerRow />
                     </Burger>
                     <Title>Company name</Title>
-                    {isMobileMenuOpen && <MobileMenu menuItems={menuItems} />}
-                    <Menu menuItems={menuItems} />
-                </Wrapper>
+                    {isMobileMenuOpen && <MobileMenu menuItems={this.menuItems}/>}
+                    <Menu menuItems={this.menuItems} />
+                </Nav>
                 <UserNav>
                     <UserNavButton onClick={this.handleSubmenuOpen}>
                         <img src={avatarPlaceholder} alt=""/>

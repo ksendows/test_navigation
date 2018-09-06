@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import cssVariables from '../../css_variables';
 
-const { headerHeight, grey, borderGrey, mainFontColor } = cssVariables;
+const { headerHeight, grey, borderGrey, mainFontColor, logoFontSize } = cssVariables;
 
 
 export const Header = styled.header`
@@ -12,16 +12,15 @@ export const Header = styled.header`
     justify-content: space-between;
     width: 100vw;
     height: ${headerHeight};
-    font-size: 1rem;
     background-color: ${grey};
 `;
 
-export const Wrapper = styled.nav`
+export const Nav = styled.nav`
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
-    width: 90%;
+    width: calc(100% - 100px);
     color: ${mainFontColor};
 
     @media (max-width: 768px) {
@@ -31,8 +30,8 @@ export const Wrapper = styled.nav`
 
 export const Title = styled.div`
     padding: 0 32px;
-    font-size: 1.1875rem;
     line-height: ${headerHeight};
+    font-size: ${logoFontSize};
     text-transform: uppercase;
 
     @media (max-width: 768px) {
@@ -42,8 +41,8 @@ export const Title = styled.div`
 
 export const UserNav = styled.div`
     position: relative;
-    width: 10%;
-    min-width: 100px;
+    box-sizing: border-box;
+    width: 100px;
     text-align: right;
     border-left: 1px solid ${borderGrey};
 `;

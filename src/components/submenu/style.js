@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 export const SubmenuTail1 = styled.div`
     position: absolute;
     top: -30px;
-    right: 20%;
+    right: 14%;
     width: 0;
     height: 0;
     border: 15px solid;
@@ -35,6 +35,6 @@ export const SubmenuList = styled.ul`
     list-style: none;
     background-color: ${white};
     border: 1px solid ${borderGrey};
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0px 0px 8px 1px ${borderGrey};
 `;
